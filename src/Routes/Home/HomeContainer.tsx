@@ -2,15 +2,14 @@ import * as React from "react";
 import HomePresenter from "./HomePresenter";
 
 interface IState {
-  ip_invalid: boolean;
-  ip_address: string;
+  query: string;
 }
 
 class HomeContainer extends React.Component<IState> {
   public state = {
-    ip_address: "",
-    ip_invalid: true
+    query: ""
   };
+
   public onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const {
       target: { name, value }
@@ -21,7 +20,7 @@ class HomeContainer extends React.Component<IState> {
   };
 
   public onButtonSubmit = event => {
-    if (this.state.ip_address === "d") {
+    if (this.state.query === "123.123.123.123") {
       console.log("dddd");
       event.preventDefault();
     }
@@ -32,7 +31,6 @@ class HomeContainer extends React.Component<IState> {
       <HomePresenter
         onButtonSubmit={this.onButtonSubmit}
         onInputChange={this.onInputChange}
-        val="aaa"
       />
     );
   }

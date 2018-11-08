@@ -1,4 +1,4 @@
-import { FieldTextStateless } from "@atlaskit/field-text";
+import  AtlasFieldText from "@atlaskit/field-text";
 import * as React from "react";
 
 interface IProps {
@@ -26,7 +26,7 @@ const FieldText: React.SFC<IProps> = ({
   shouldFitContainer = false,
   pattern
 }) => (
-  <FieldTextStateless
+  <AtlasFieldText
     label={label}
     required={required}
     value={value}

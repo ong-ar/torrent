@@ -28,13 +28,11 @@ const ButtonContainer = styled.div`
 interface IProps {
   onButtonSubmit: any;
   onInputChange: any;
-  val: string;
 }
 
 const HomePresenter: React.SFC<IProps> = ({
   onButtonSubmit,
-  onInputChange,
-  val
+  onInputChange
 }) => (
   <Container>
     <form method="GET" action="/search" onSubmit={onButtonSubmit}>
@@ -44,8 +42,9 @@ const HomePresenter: React.SFC<IProps> = ({
             onChange={onInputChange}
             shouldFitContainer={true}
             required={true}
+            value=""
             pattern="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
-            name="ip_address"
+            name="query"
             label="IP Address"
           />
         </TextFieldContainer>

@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 
-export const GET_TRACE = gql`
-  query getTrace($ip: String!) {
+export const GET_IP = gql`
+  query getIp($ip: String!) {
     GetIp(ip: $ip) {
       ip_info {
         ip
