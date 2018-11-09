@@ -1,11 +1,13 @@
 import * as React from "react";
 import Button from "../../Components/Button";
 import TextField from "../../Components/TextField";
+import searchLogo from "../../images/search.svg";
 import styled from "../../typed-components";
 
 const Container = styled.div`
   width: 600px;
   margin: 0 auto;
+  margin-top: 100px;
 `;
 
 const SearchContainer = styled.div`
@@ -25,16 +27,26 @@ const ButtonContainer = styled.div`
   padding-bottom: 2px;
 `;
 
+const LogoContainer = styled.div`
+  margin: 0 auto;
+  text-align: center;
+`;
+
 interface IProps {
   onButtonSubmit: any;
   onInputChange: any;
+  onKeyPress: any;
 }
 
 const HomePresenter: React.SFC<IProps> = ({
   onButtonSubmit,
-  onInputChange
+  onInputChange,
+  onKeyPress
 }) => (
   <Container>
+    <LogoContainer>
+      <img src={searchLogo} style={{ width: "300px" }} />
+    </LogoContainer>
     <form method="GET" action="/search" onSubmit={onButtonSubmit}>
       <SearchContainer>
         <TextFieldContainer>
@@ -42,6 +54,7 @@ const HomePresenter: React.SFC<IProps> = ({
             onChange={onInputChange}
             shouldFitContainer={true}
             required={true}
+            onKeyPress={onKeyPress}
             value=""
             pattern="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
             name="query"

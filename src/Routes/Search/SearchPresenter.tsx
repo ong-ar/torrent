@@ -1,5 +1,6 @@
 import * as React from "react";
 import Button from "../../Components/Button";
+import Table from "../../Components/Table";
 import TextField from "../../Components/TextField";
 import styled from "../../typed-components";
 
@@ -25,16 +26,24 @@ const ButtonContainer = styled.div`
   padding-bottom: 2px;
 `;
 
+const TableContainer = styled.div`
+  padding-top: 40px;
+`;
+
 interface IProps {
   onButtonSubmit: any;
   onInputChange: any;
+  onKeyPress: any;
   query: string;
+  result?: any;
 }
 
 const SearchPresenter: React.SFC<IProps> = ({
   onButtonSubmit,
   onInputChange,
-  query
+  onKeyPress,
+  query,
+  result
 }) => (
   <Container>
     <form method="GET" action="/search" onSubmit={onButtonSubmit}>
@@ -45,6 +54,7 @@ const SearchPresenter: React.SFC<IProps> = ({
             shouldFitContainer={true}
             required={true}
             value={query}
+            onKeyPress={onKeyPress}
             pattern="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
             name="query"
             label="IP Address"
@@ -60,6 +70,15 @@ const SearchPresenter: React.SFC<IProps> = ({
         </ButtonContainer>
       </SearchContainer>
     </form>
+    <TableContainer>
+      {result.loading && <div>loading...</div>}
+      {result.data && result.data.GetIp && result.data.GetIp.error && (
+        <div>error</div>
+      )}
+      {result.data && result.data.GetIp && result.data.GetIp.ip_info && (
+        <Table data={result.data.GetIp.ip_info} />
+      )}
+    </TableContainer>
   </Container>
 );
 

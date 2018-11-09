@@ -19,6 +19,13 @@ class HomeContainer extends React.Component<IState> {
     } as any);
   };
 
+  public onKeyPress = (event: React.KeyboardEvent<KeyboardEvent>) => {
+    if (event.key === "Enter") {
+      return true;
+    }
+    return false;
+  };
+
   public onButtonSubmit = event => {
     if (this.state.query === "123.123.123.123") {
       console.log("dddd");
@@ -31,6 +38,7 @@ class HomeContainer extends React.Component<IState> {
       <HomePresenter
         onButtonSubmit={this.onButtonSubmit}
         onInputChange={this.onInputChange}
+        onKeyPress={this.onKeyPress}
       />
     );
   }

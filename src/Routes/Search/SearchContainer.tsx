@@ -33,6 +33,13 @@ class SearchContainer extends React.Component<IProps, IState> {
     }
   };
 
+  public onKeyPress = (event: React.KeyboardEvent<KeyboardEvent>) => {
+    if (event.key === "Enter") {
+      return true;
+    }
+    return false;
+  };
+
   public render() {
     const search = this.props.location.search;
     const params = new URLSearchParams(search);
@@ -42,18 +49,14 @@ class SearchContainer extends React.Component<IProps, IState> {
       <Query query={GET_IP} variables={{ ip: query }}>
         {({ loading, error, data }) => {
           console.log(data);
-          if (loading) {
-            return <div>Loading ...</div>;
-          }
-          if (error) {
-            return `Error! ${error.message}`;
-          }
 
           return (
             <SearchPresenter
               onButtonSubmit={this.onButtonSubmit}
               onInputChange={this.onInputChange}
+              onKeyPress={this.onKeyPress}
               query={query}
+              result={{ loading, error, data }}
             />
           );
         }}

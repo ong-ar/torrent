@@ -1,4 +1,4 @@
-import  AtlasFieldText from "@atlaskit/field-text";
+import AtlasFieldText from "@atlaskit/field-text";
 import * as React from "react";
 
 interface IProps {

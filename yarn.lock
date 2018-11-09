@@ -10,7 +10,15 @@
     babel-runtime "^6.26.0"
     prop-types "^15.5.10"
 
-"@atlaskit/button@^9.0.16":
+"@atlaskit/analytics-next@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@atlaskit/analytics-next/-/analytics-next-3.1.0.tgz#9c4550529cceb51cef13648905917de39cebcd30"
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    babel-runtime "^6.26.0"
+    prop-types "^15.5.10"
+
+"@atlaskit/button@^9.0.15", "@atlaskit/button@^9.0.16":
   version "9.0.16"
   resolved "https://registry.yarnpkg.com/@atlaskit/button/-/button-9.0.16.tgz#1e5cf95ab20c879ba2b2548d17cfd7ac509cabea"
   dependencies:
@@ -83,6 +91,20 @@
     "@babel/runtime" "^7.0.0"
     babel-runtime "^6.26.0"
     react-transition-group "^2.2.1"
+
+"@atlaskit/table-tree@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@atlaskit/table-tree/-/table-tree-5.0.1.tgz#f8373328e02871ba04a705910fbe8d385f830419"
+  dependencies:
+    "@atlaskit/analytics-next" "^3.1.0"
+    "@atlaskit/button" "^9.0.15"
+    "@atlaskit/icon" "^14.0.2"
+    "@atlaskit/spinner" "^9.0.10"
+    "@atlaskit/theme" "^6.1.1"
+    "@babel/runtime" "^7.0.0"
+    lodash.get "^4.4.2"
+    lodash.set "^4.3.2"
+    prop-types "^15.5.10"
 
 "@atlaskit/theme@^6.1.1":
   version "6.2.0"
@@ -4655,6 +4677,10 @@ lodash.flowright@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/lodash.flowright/-/lodash.flowright-3.5.0.tgz#2b5fff399716d7e7dc5724fe9349f67065184d67"
 
+lodash.get@^4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
+
 lodash.isequal@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
@@ -4670,6 +4696,10 @@ lodash.isstring@^4.0.1:
 lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
+
+lodash.set@^4.3.2:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
 
 lodash.sortby@^4.7.0:
   version "4.7.0"
