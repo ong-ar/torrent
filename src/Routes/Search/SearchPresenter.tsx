@@ -1,4 +1,8 @@
 import * as React from "react";
+import { css } from "react-emotion";
+import { CircleLoader } from "react-spinners";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Button from "../../Components/Button";
 import Table from "../../Components/Table";
 import TextField from "../../Components/TextField";
@@ -30,27 +34,32 @@ const TableContainer = styled.div`
   padding-top: 40px;
 `;
 
+const LoadingContainer = styled.div`
+  padding-top: 40px;
+`;
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+`;
+
 interface IProps {
-  onButtonSubmit: any;
-  onInputChange: any;
-  onKeyPress: any;
+  onButtonSubmit?: any;
+  onInputChange?: any;
+  onKeyPress?: any;
   query: string;
   result?: any;
 }
 
-const SearchPresenter: React.SFC<IProps> = ({
-  onButtonSubmit,
-  onInputChange,
-  onKeyPress,
-  query,
-  result
-}) => (
+const notify = () => toast.error("Bad Request");
+
+const SearchPresenter: React.SFC<IProps> = ({ onKeyPress, query, result }) => (
   <Container>
-    <form method="GET" action="/search" onSubmit={onButtonSubmit}>
+    <ToastContainer autoClose={2000} />
+    <form method="GET" action="/search">
       <SearchContainer>
         <TextFieldContainer>
           <TextField
-            onChange={onInputChange}
             shouldFitContainer={true}
             required={true}
             value={query}
@@ -71,12 +80,24 @@ const SearchPresenter: React.SFC<IProps> = ({
       </SearchContainer>
     </form>
     <TableContainer>
-      {result.loading && <div>loading...</div>}
-      {result.data && result.data.GetIp && result.data.GetIp.error && (
-        <div>error</div>
+      {result.loading && (
+        <LoadingContainer>
+          <CircleLoader className={override} color={"#123abc"} />
+        </LoadingContainer>
       )}
+      {result.data &&
+        result.data.GetIp &&
+        result.data.GetIp.error &&
+        notify() && <div />}
       {result.data && result.data.GetIp && result.data.GetIp.ip_info && (
-        <Table data={result.data.GetIp.ip_info} />
+        <Table datas={[
+          { key: "ip", value: result.data.GetIp.ip_info.ip },
+          { key: "country", value: result.data.GetIp.ip_info.country },
+          { key: "city", value: result.data.GetIp.ip_info.city },
+          { key: "zip", value: result.data.GetIp.ip_info.zip },
+          { key: "ll", value: result.data.GetIp.ip_info.ll.toString() },
+          { key: "range", value: result.data.GetIp.ip_info.range.toString() }
+        ]} />
       )}
     </TableContainer>
   </Container>

@@ -6,35 +6,28 @@ import TableTree, {
   Rows
 } from "@atlaskit/table-tree";
 import * as React from "react";
+import ReactCountryFlag from "react-country-flag";
 
 interface IProps {
-  data: any;
+  datas: any;
 }
 
-const staticData = [
-  {
-    description: "Description One",
-    title: "Chapter One: Introduction"
-  },
-  {
-    description: "Description Two. This column can span multiple lines.",
-    title:
-      "Chapter Two: With a Very Very Long Title That Should Be Cut Off Because We Don't Want It To Span Multiple Lines"
-  }
-];
-
-const Table: React.SFC<IProps> = ({}) => (
+const Table: React.SFC<IProps> = ({ datas }) => (
   <TableTree>
     <Headers>
-      <Header width={300}>Title</Header>
-      <Header width={200}>Description</Header>
+      <Header width={200}>Key</Header>
+      <Header width={400}>Value</Header>
     </Headers>
     <Rows
-      items={staticData}
-      render={({ title, description }) => (
-        <Row itemId={title} hasChildren={false}>
-          <Cell singleLine={true}>{title}</Cell>
-          <Cell>{description}</Cell>
+      items={datas}
+      render={({ key, value }) => (
+        <Row itemId={key} hasChildren={false}>
+          <Cell singleLine={true}>{key}</Cell>
+          <Cell>
+            {value}&nbsp;
+            {key === 'country'?<ReactCountryFlag code={value}/> : ''}
+            {key === 'll'?<a href={"https://www.google.com/maps/@" + value + ",14z"} target="_blank">(Google Map)</a> : ''}
+          </Cell>
         </Row>
       )}
     />

@@ -27,8 +27,7 @@ class HomeContainer extends React.Component<IState> {
   };
 
   public onButtonSubmit = event => {
-    if (this.state.query === "123.123.123.123") {
-      console.log("dddd");
+    if (this.state.query === "") {
       event.preventDefault();
     }
   };
