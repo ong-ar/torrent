@@ -1,4 +1,5 @@
 import * as React from "react";
+import AdSense from "react-adsense";
 import { css } from "react-emotion";
 import { CircleLoader } from "react-spinners";
 import { toast, ToastContainer } from "react-toastify";
@@ -36,6 +37,12 @@ const TableContainer = styled.div`
 
 const LoadingContainer = styled.div`
   padding-top: 40px;
+`;
+
+const AdContainer = styled.div`
+  padding-top: 40px;
+  margin: 0 auto;
+  text-align: center;
 `;
 
 const override = css`
@@ -79,6 +86,15 @@ const SearchPresenter: React.SFC<IProps> = ({ onKeyPress, query, result }) => (
         </ButtonContainer>
       </SearchContainer>
     </form>
+    <AdContainer>
+      <AdSense.Google
+        client="ca-pub-3768222384178862"
+        slot="3518780361"
+        format="auto"
+        responsive="true"
+        style={{ display: "block" }}
+      />
+    </AdContainer>
     <TableContainer>
       {result.loading && (
         <LoadingContainer>
@@ -90,14 +106,16 @@ const SearchPresenter: React.SFC<IProps> = ({ onKeyPress, query, result }) => (
         result.data.GetIp.error &&
         notify() && <div />}
       {result.data && result.data.GetIp && result.data.GetIp.ip_info && (
-        <Table datas={[
-          { key: "ip", value: result.data.GetIp.ip_info.ip },
-          { key: "country", value: result.data.GetIp.ip_info.country },
-          { key: "city", value: result.data.GetIp.ip_info.city },
-          { key: "zip", value: result.data.GetIp.ip_info.zip },
-          { key: "ll", value: result.data.GetIp.ip_info.ll.toString() },
-          { key: "range", value: result.data.GetIp.ip_info.range.toString() }
-        ]} />
+        <Table
+          datas={[
+            { key: "ip", value: result.data.GetIp.ip_info.ip },
+            { key: "country", value: result.data.GetIp.ip_info.country },
+            { key: "city", value: result.data.GetIp.ip_info.city },
+            { key: "zip", value: result.data.GetIp.ip_info.zip },
+            { key: "ll", value: result.data.GetIp.ip_info.ll.toString() },
+            { key: "range", value: result.data.GetIp.ip_info.range.toString() }
+          ]}
+        />
       )}
     </TableContainer>
   </Container>

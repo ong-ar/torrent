@@ -1,4 +1,5 @@
 import * as React from "react";
+import AdSense from "react-adsense";
 import Button from "../../Components/Button";
 import TextField from "../../Components/TextField";
 import searchLogo from "../../images/search.svg";
@@ -28,6 +29,12 @@ const ButtonContainer = styled.div`
 `;
 
 const LogoContainer = styled.div`
+  margin: 0 auto;
+  text-align: center;
+`;
+
+const AdContainer = styled.div`
+  padding-top: 40px;
   margin: 0 auto;
   text-align: center;
 `;
@@ -71,6 +78,15 @@ const HomePresenter: React.SFC<IProps> = ({
         </ButtonContainer>
       </SearchContainer>
     </form>
+    <AdContainer>
+      <AdSense.Google
+        client="ca-pub-3768222384178862"
+        slot="3518780361"
+        format="auto"
+        responsive="true"
+        style={{ display: "block" }}
+      />
+    </AdContainer>
   </Container>
 );
 

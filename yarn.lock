@@ -6220,6 +6220,10 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-adsense@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/react-adsense/-/react-adsense-0.0.6.tgz#0ceaaba47280e89c346ec68a38a2aa0b56d55208"
+
 react-apollo@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-2.2.4.tgz#05b2a91deb4d5f30d2511fc663abc465b219435e"
