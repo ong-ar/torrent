@@ -52,7 +52,7 @@ const HomePresenter: React.SFC<IProps> = ({
 }) => (
   <Container>
     <LogoContainer>
-      <img src={searchLogo} style={{ width: "300px" }} />
+      <img src={searchLogo} style={{ width: "300px", height: "300px" }} />
     </LogoContainer>
     <form method="GET" action="/search" onSubmit={onButtonSubmit}>
       <SearchContainer>

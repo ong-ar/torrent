@@ -2706,6 +2706,10 @@ es6-set@~0.1.5:
     es6-symbol "3.1.1"
     event-emitter "~0.3.5"
 
+es6-shim@^0.35.4:
+  version "0.35.4"
+  resolved "https://registry.yarnpkg.com/es6-shim/-/es6-shim-0.35.4.tgz#8d5a4109756383d3f0323421089c423acf8378f1"
+
 es6-symbol@3.1.1, es6-symbol@^3.1.1, es6-symbol@~3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/es6-symbol/-/es6-symbol-3.1.1.tgz#bf00ef4fdab6ba1b46ecb7b629b4c7ed5715cc77"
@@ -3123,6 +3127,10 @@ find-up@^2.0.0, find-up@^2.1.0:
   resolved "https://registry.yarnpkg.com/find-up/-/find-up-2.1.0.tgz#45d1b7e506c717ddd482775a2b77920a3c0c57a7"
   dependencies:
     locate-path "^2.0.0"
+
+flag-icon-css@^3.0.0:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/flag-icon-css/-/flag-icon-css-3.2.1.tgz#ff269388e25e29d54b39699e88d76c3141a7cc70"
 
 flatten@^1.0.2:
   version "1.0.2"
@@ -6282,6 +6290,14 @@ react-error-overlay@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-4.0.1.tgz#417addb0814a90f3a7082eacba7cee588d00da89"
 
+react-flag-icon-css@^1.0.24:
+  version "1.0.24"
+  resolved "https://registry.yarnpkg.com/react-flag-icon-css/-/react-flag-icon-css-1.0.24.tgz#9228a146e791e8a5e1a21bc1c3257d6b2bc4a7ea"
+  dependencies:
+    classnames "^2.2.6"
+    flag-icon-css "^3.0.0"
+    prop-types "^15.6.2"
+
 react-is@^16.3.2:
   version "16.6.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.6.1.tgz#f77b1c3d901be300abe8d58645b7a59e794e5982"
@@ -7786,6 +7802,10 @@ url-parse@^1.1.8, url-parse@^1.4.3:
   dependencies:
     querystringify "^2.0.0"
     requires-port "^1.0.0"
+
+url-search-params-polyfill@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/url-search-params-polyfill/-/url-search-params-polyfill-5.0.0.tgz#09b98337c89dcf6c6a6a0bfeb096f6ba83b7526b"
 
 url@^0.11.0:
   version "0.11.0"

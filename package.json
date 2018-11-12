@@ -11,6 +11,7 @@
     "apollo-cache-inmemory": "^1.3.9",
     "apollo-client": "^2.4.5",
     "apollo-link-http": "^1.5.5",
+    "es6-shim": "^0.35.4",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
     "react": "^16.6.0",
@@ -18,11 +19,13 @@
     "react-apollo": "^2.2.4",
     "react-country-flag": "^1.0.1",
     "react-dom": "^16.6.0",
+    "react-flag-icon-css": "^1.0.24",
     "react-router-dom": "^4.3.1",
     "react-scripts-ts": "3.1.0",
     "react-spinners": "^0.4.7",
     "react-toastify": "^4.4.2",
-    "styled-components": "^4.0.3"
+    "styled-components": "^4.0.3",
+    "url-search-params-polyfill": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",

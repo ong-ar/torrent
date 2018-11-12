@@ -25,8 +25,21 @@ const Table: React.SFC<IProps> = ({ datas }) => (
           <Cell singleLine={true}>{key}</Cell>
           <Cell>
             {value}&nbsp;
-            {key === 'country'?<ReactCountryFlag code={value}/> : ''}
-            {key === 'll'?<a href={"https://www.google.com/maps/@" + value + ",14z"} target="_blank">(Google Map)</a> : ''}
+            {key === "country" ? (
+              <ReactCountryFlag code={value} svg={true} />
+            ) : (
+              ""
+            )}
+            {key === "ll" ? (
+              <a
+                href={"https://www.google.com/maps/@" + value + ",14z"}
+                target="_blank"
+              >
+                (Google Map)
+              </a>
+            ) : (
+              ""
+            )}
           </Cell>
         </Row>
       )}
