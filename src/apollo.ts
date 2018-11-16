@@ -8,7 +8,7 @@ const client = new ApolloClient({
   // Pass the configuration option { uri: YOUR_GRAPHQL_API_URL } to the `HttpLink` to connect
   // to a different host
   cache: new InMemoryCache(),
-  link: new HttpLink({ uri: "http://api.ong-ar.com/graphql" })
+  link: new HttpLink({ uri: "https://api.ong-ar.com/graphql" })
 });
 
 export default client;
