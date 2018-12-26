@@ -2,7 +2,7 @@ import AtlasButton from "@atlaskit/button";
 import * as React from "react";
 
 interface IProps {
-  onChange?: any;
+  onClick?: any;
   appearance?: string;
   isDisabled?: boolean;
   html: string;
@@ -11,7 +11,7 @@ interface IProps {
 }
 
 const Button: React.SFC<IProps> = ({
-  onChange,
+  onClick,
   appearance = "default",
   isDisabled,
   html,
@@ -19,7 +19,7 @@ const Button: React.SFC<IProps> = ({
   type = "button"
 }) => (
   <AtlasButton
-    onChange={onChange}
+    onClick={onClick}
     appearance={appearance}
     isDisabled={isDisabled}
     shouldFitContainer={shouldFitContainer}

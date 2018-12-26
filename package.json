@@ -8,6 +8,7 @@
     "@atlaskit/form": "^4.0.14",
     "@atlaskit/table-tree": "^5.0.1",
     "@types/react-router-dom": "^4.3.1",
+    "axios": "^0.18.0",
     "es6-shim": "^0.35.4",
     "react": "^16.6.0",
     "react-adsense": "^0.0.6",

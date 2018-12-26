@@ -40,13 +40,13 @@ const AdContainer = styled.div`
 `;
 
 interface IProps {
-  onButtonSubmit: any;
+  onClick: any;
   onInputChange: any;
   onKeyPress: any;
 }
 
 const HomePresenter: React.SFC<IProps> = ({
-  onButtonSubmit,
+  onClick,
   onInputChange,
   onKeyPress
 }) => (
@@ -54,30 +54,28 @@ const HomePresenter: React.SFC<IProps> = ({
     <LogoContainer>
       <img src={searchLogo} style={{ width: "300px" }} />
     </LogoContainer>
-    <form method="GET" action="/search" onSubmit={onButtonSubmit}>
-      <SearchContainer>
-        <TextFieldContainer>
-          <TextField
-            onChange={onInputChange}
-            shouldFitContainer={true}
-            required={true}
-            onKeyPress={onKeyPress}
-            value=""
-            pattern="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
-            name="query"
-            label="IP Address"
-          />
-        </TextFieldContainer>
-        <ButtonContainer>
-          <Button
-            html="search"
-            appearance="primary"
-            shouldFitContainer={true}
-            type="submit"
-          />
-        </ButtonContainer>
-      </SearchContainer>
-    </form>
+    <SearchContainer>
+      <TextFieldContainer>
+        <TextField
+          onChange={onInputChange}
+          shouldFitContainer={true}
+          required={true}
+          onKeyPress={onKeyPress}
+          value=""
+          name="query"
+          label="Keyword"
+        />
+      </TextFieldContainer>
+      <ButtonContainer>
+        <Button
+          html="search"
+          appearance="primary"
+          onClick={onClick}
+          shouldFitContainer={true}
+          type="button"
+        />
+      </ButtonContainer>
+    </SearchContainer>
     <AdContainer>
       <AdSense.Google
         client="ca-pub-3768222384178862"
