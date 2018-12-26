@@ -5,7 +5,6 @@ import * as React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "url-search-params-polyfill";
 import Home from "../Home";
-import Search from "../Search";
 
 const AppPresenter: React.SFC = () => (
   <BrowserRouter>
@@ -16,7 +15,6 @@ const AppPresenter: React.SFC = () => (
 const Routes: React.SFC = () => (
   <Switch>
     <Route path={"/"} exact={true} component={Home} />
-    <Route path={"/search"} exact={true} component={Search} />
   </Switch>
 );
 
