@@ -8,45 +8,50 @@ interface IState {
 
 class HomeContainer extends React.Component<IState> {
   public state = {
+    date: "2018-12-27",
     list: [
       {
         host: "https://torrenthaja.com",
-        image_path: "/eyoom/theme/basic2/image/twitter.png",
+        image_path: "/eyoom/theme/basic2/image/titter.png",
         name: "토렌트하자",
-
-        search_path: "/bbs/search.php?search_flag=search&stx="
+        search_path: "/bbs/search.php?search_flag=search&stx=",
+        status: false
       },
       {
         host: "https://torrentwal.net",
         image_path: "/img/torrent.png",
         name: "토렌트왈",
-        search_path: "/bbs/s.php?q=&k="
+        search_path: "/bbs/s.php?q=&k=",
+        status: false
       },
       {
         host: "https://torrentboza.com",
         image_path: "/img/logo-toboja.gif",
         name: "토렌트보자",
         search_path:
-          "/bbs/search.php?url=https%3A%2F%2Ftorrentboza.com%2Fbbs%2Fsearch.php&stx="
+          "/bbs/search.php?url=https%3A%2F%2Ftorrentboza.com%2Fbbs%2Fsearch.php&stx=",
+        status: false
       },
       {
         host: "https://www.torrentmap.com",
         image_path: "/img/logo.png?v=4",
         name: "토렌트맵",
-        search_path: "/search.php?stx=search"
+        search_path: "/search.php?stx=",
+        status: false
       },
       {
         host: "https://torrentpong.com",
         image_path: "/img/logo.png",
         name: "토렌트퐁",
         search_path:
-          "/bbs/search.php?stx=&url=https%3A%2F%2Ftorrentpong.com%2Fbbs%2Fsearch.php&sop=or&q="
+          "/bbs/search.php?stx=&url=https%3A%2F%2Ftorrentpong.com%2Fbbs%2Fsearch.php&sop=or&q=",
+        status: false
       }
     ],
     query: ""
   };
 
-  public onInputChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  public onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const {
       target: { name, value }
     } = event;
@@ -55,7 +60,7 @@ class HomeContainer extends React.Component<IState> {
     } as any);
   };
 
-  public onKeyPress = async (event: React.KeyboardEvent<KeyboardEvent>) => {
+  public onKeyPress = (event: React.KeyboardEvent<KeyboardEvent>) => {
     if (event.key === "Enter") {
       this.searchTorrent();
     }
@@ -71,25 +76,33 @@ class HomeContainer extends React.Component<IState> {
         onClick={this.onClick}
         onInputChange={this.onInputChange}
         onKeyPress={this.onKeyPress}
+        list={this.state.list}
+        date={this.state.date}
       />
     );
   }
-  private searchTorrent = async () => {
+
+  public componentDidMount = () => {
+    this.isSiteOnline(this.state.list, 0);
+  };
+  private searchTorrent = () => {
     if (this.state.query === "") {
       return;
     }
 
-    const list = [...this.state.list];
+    const list = [...this.state.list.filter(item => item.status)];
     const query = this.state.query;
 
-    const shuffledlist = this.shuffleArray(list);
-
-    this.isSiteOnline(shuffledlist, query, 0);
+    if (list.length < 1) {
+      alert("all of sites are offline");
+    } else {
+      const index = Math.floor(Math.random() * list.length);
+      window.open(list[index].host + list[index].search_path + query);
+    }
   };
 
-  private isSiteOnline = (list, query, index) => {
+  private isSiteOnline = (list, index) => {
     if (!list[index]) {
-      alert("all of sites are offline!");
       return;
     }
     // try to load favicon
@@ -100,22 +113,23 @@ class HomeContainer extends React.Component<IState> {
     const img = document.createElement("img");
     img.onload = () => {
       clearTimeout(timer);
-      window.open(list[index].host + list[index].search_path + query);
+      const nextState = Object.assign({}, this.state);
+      nextState.list[index].status = true;
+      this.setState(nextState);
+      // list[index].status = true;
     };
 
     img.onerror = () => {
       clearTimeout(timer);
-      this.isSiteOnline(list, query, index + 1);
+      const nextState = Object.assign({}, this.state);
+      nextState.list[index].status = false;
+      this.setState(nextState);
+      // list[index].status = false;
     };
 
+    this.isSiteOnline(list, index + 1);
+
     img.src = list[index].host + list[index].image_path;
-  };
-  private shuffleArray = array => {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
   };
 }
 export default HomeContainer;

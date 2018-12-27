@@ -1,8 +1,8 @@
 import * as React from "react";
-import AdSense from "react-adsense";
+import IosPower from "react-ionicons/lib/IosPower";
 import Button from "../../Components/Button";
+import TableTree from "../../Components/Table";
 import TextField from "../../Components/TextField";
-import searchLogo from "../../images/search.svg";
 import styled from "../../typed-components";
 
 const Container = styled.div`
@@ -28,64 +28,102 @@ const ButtonContainer = styled.div`
   padding-bottom: 2px;
 `;
 
-const LogoContainer = styled.div`
+const ConnectInfoContainer = styled.div`
   margin: 0 auto;
+  margin-top: 30px;
   text-align: center;
 `;
 
-const AdContainer = styled.div`
-  padding-top: 40px;
+const UpdateInfoContainer = styled.div`
   margin: 0 auto;
-  text-align: center;
+  text-align: right;
+`;
+
+const DescriptionContainer = styled.div`
+  margin: 0 auto;
+  margin-top: 30px;
+  text-align: left;
 `;
 
 interface IProps {
   onClick: any;
   onInputChange: any;
   onKeyPress: any;
+  list: any[];
+  date: string;
 }
 
 const HomePresenter: React.SFC<IProps> = ({
   onClick,
   onInputChange,
-  onKeyPress
-}) => (
-  <Container>
-    <LogoContainer>
-      <img src={searchLogo} style={{ width: "300px" }} />
-    </LogoContainer>
-    <SearchContainer>
-      <TextFieldContainer>
-        <TextField
-          onChange={onInputChange}
-          shouldFitContainer={true}
-          required={true}
-          onKeyPress={onKeyPress}
-          value=""
-          name="query"
-          label="Keyword"
+  onKeyPress,
+  list,
+  date
+}) => {
+  return (
+    <Container>
+      <SearchContainer>
+        <TextFieldContainer>
+          <TextField
+            onChange={onInputChange}
+            shouldFitContainer={true}
+            required={true}
+            onKeyPress={onKeyPress}
+            value=""
+            name="query"
+            label="Keyword"
+          />
+        </TextFieldContainer>
+        <ButtonContainer>
+          <Button
+            html="search"
+            appearance="primary"
+            onClick={onClick}
+            shouldFitContainer={true}
+            type="button"
+          />
+        </ButtonContainer>
+      </SearchContainer>
+      <ConnectInfoContainer>
+        <TableTree
+          headers={["Status", "Name", "Host"]}
+          columns={[
+            item => {
+              if (item.status) {
+                return <IosPower fontSize="40px" color="green" beat={true} />;
+              } else {
+                return <IosPower fontSize="40px" color="red" shake={true} />;
+              }
+            },
+            item => item.name,
+            item => {
+              return (
+                <a href={item.host} target="_blank">
+                  {item.host}
+                </a>
+              );
+            }
+          ]}
+          columnWidths={["200px", "200px", "200px"]}
+          items={list.map((item, index) => {
+            return {
+              children: [],
+              content: {
+                host: item.host,
+                name: item.name,
+                status: item.status
+              },
+              hasChildren: false
+            };
+          })}
         />
-      </TextFieldContainer>
-      <ButtonContainer>
-        <Button
-          html="search"
-          appearance="primary"
-          onClick={onClick}
-          shouldFitContainer={true}
-          type="button"
-        />
-      </ButtonContainer>
-    </SearchContainer>
-    <AdContainer>
-      <AdSense.Google
-        client="ca-pub-3768222384178862"
-        slot="3518780361"
-        format="auto"
-        responsive="true"
-        style={{ display: "block" }}
-      />
-    </AdContainer>
-  </Container>
-);
+      </ConnectInfoContainer>
+      <UpdateInfoContainer>{date} 기준</UpdateInfoContainer>
+      <DescriptionContainer>
+        설명<br />
+      </DescriptionContainer>
+    </Container>
+  );
+};
 
 export default HomePresenter;
