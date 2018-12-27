@@ -1,3 +1,8 @@
+import {
+  AtlaskitThemeProvider,
+  elevation as AkElevations,
+  themed
+} from "@atlaskit/theme";
 import * as React from "react";
 import IosPower from "react-ionicons/lib/IosPower";
 import Button from "../../Components/Button";
@@ -43,6 +48,16 @@ const DescriptionContainer = styled.div`
   margin: 0 auto;
   margin-top: 30px;
   text-align: left;
+`;
+
+const Box = styled.div`
+  ${({ elevation }) => AkElevations[elevation]}
+  background-color: ${() => themed({ light: "white", dark: "#283447" })};
+  border-radius: 3px;
+  margin-bottom: 2em;
+  min-width: 240px;
+  padding: 16px 24px;
+  text-align: center;
 `;
 
 interface IProps {
@@ -119,8 +134,15 @@ const HomePresenter: React.SFC<IProps> = ({
         />
       </ConnectInfoContainer>
       <UpdateInfoContainer>{date} 기준</UpdateInfoContainer>
+
       <DescriptionContainer>
-        설명<br />
+        <AtlaskitThemeProvider mode="light">
+          <Box elevation="e100">알림</Box>
+          <Box elevation="e100">
+            - 브라우저 내에서 위 리스트 서버 상태 확인
+            <br />- search 는 서버가 On 인 사이트 중 무작위로 선택 검색 진행
+          </Box>
+        </AtlaskitThemeProvider>
       </DescriptionContainer>
     </Container>
   );

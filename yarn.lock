@@ -199,7 +199,7 @@
     "@babel/runtime" "^7.0.0"
     prop-types "^15.5.10"
 
-"@atlaskit/theme@^7.0.1":
+"@atlaskit/theme@^7.0.1", "@atlaskit/theme@^7.0.2":
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/@atlaskit/theme/-/theme-7.0.2.tgz#49a9069958c0fbaae1f5e1edd7939358d7e4a039"
   dependencies:
