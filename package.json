@@ -4,12 +4,9 @@
   "private": true,
   "dependencies": {
     "@atlaskit/button": "^9.0.16",
-    "@atlaskit/css-reset": "^3.0.5",
     "@atlaskit/dynamic-table": "^10.0.22",
     "@atlaskit/field-text": "^7.0.13",
     "@atlaskit/form": "^4.0.14",
-    "@atlaskit/reduced-ui-pack": "^10.5.3",
-    "@atlaskit/status": "^0.2.11",
     "@atlaskit/table-tree": "^5.0.1",
     "@atlaskit/theme": "^7.0.2",
     "@types/react-router-dom": "^4.3.1",

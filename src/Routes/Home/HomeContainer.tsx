@@ -12,7 +12,7 @@ class HomeContainer extends React.Component<IState> {
     list: [
       {
         host: "https://torrenthaja.com",
-        image_path: "/eyoom/theme/basic2/image/titter.png",
+        image_path: "/eyoom/theme/basic2/image/twitter.png",
         name: "토렌트하자",
         search_path: "/bbs/search.php?search_flag=search&stx=",
         status: false

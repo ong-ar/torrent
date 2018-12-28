@@ -105,9 +105,9 @@ const HomePresenter: React.SFC<IProps> = ({
           columns={[
             item => {
               if (item.status) {
-                return <IosPower fontSize="40px" color="green" beat={true} />;
+                return <IosPower fontSize="25px" color="green" beat={true} />;
               } else {
-                return <IosPower fontSize="40px" color="red" shake={true} />;
+                return <IosPower fontSize="25px" color="red" shake={true} />;
               }
             },
             item => item.name,
@@ -137,7 +137,6 @@ const HomePresenter: React.SFC<IProps> = ({
 
       <DescriptionContainer>
         <AtlaskitThemeProvider mode="light">
-          <Box elevation="e100">알림</Box>
           <Box elevation="e100">
             - 브라우저 내에서 위 리스트 서버 상태 확인
             <br />- search 는 서버가 On 인 사이트 중 무작위로 선택 검색 진행
