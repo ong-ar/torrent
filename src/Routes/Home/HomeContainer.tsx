@@ -74,7 +74,7 @@ class HomeContainer extends React.Component<IState> {
       {
         host: "https://torrentpan.net",
         image_path: "/img/logo-tp.gif",
-        name: "토렌트린",
+        name: "토렌트판",
         search_path:
           "/bbs/search.php?url=https%3A%2F%2Ftorrentpan.net%2Fbbs%2Fsearch.php&stx=",
         status: false
