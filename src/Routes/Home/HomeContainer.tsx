@@ -46,6 +46,38 @@ class HomeContainer extends React.Component<IState> {
         search_path:
           "/bbs/search.php?stx=&url=https%3A%2F%2Ftorrentpong.com%2Fbbs%2Fsearch.php&sop=or&q=",
         status: false
+      },
+      {
+        host: "http://totoria.co",
+        image_path: "/thema/Miso-LTE/assets/img/sns_fb.png",
+        name: "토토리아",
+        search_path:
+          "/bbs/search.php?url=http%3A%2F%2Ftotoria.co%2Fbbs%2Fsearch.php&stx=",
+        status: false
+      },
+      {
+        host: "https://joymaxim.com",
+        image_path: "/img/no_profile.gif",
+        name: "조이맥심",
+        search_path:
+          "/bbs/search.php?sfl=wr_subject%7C%7Cwr_content&sop=and&stx=",
+        status: false
+      },
+      {
+        host: "https://torrentlin.com",
+        image_path: "/img/logo.png",
+        name: "토렌트린",
+        search_path:
+          "/search.php?stx=",
+        status: false
+      },
+      {
+        host: "https://torrentpan.net",
+        image_path: "/img/logo-tp.gif",
+        name: "토렌트린",
+        search_path:
+          "/bbs/search.php?url=https%3A%2F%2Ftorrentpan.net%2Fbbs%2Fsearch.php&stx=",
+        status: false
       }
     ],
     query: ""
