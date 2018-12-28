@@ -119,7 +119,7 @@ const HomePresenter: React.SFC<IProps> = ({
               );
             }
           ]}
-          columnWidths={["200px", "200px", "200px"]}
+          columnWidths={["150px", "200px", "300px"]}
           items={list.map((item, index) => {
             return {
               children: [],
