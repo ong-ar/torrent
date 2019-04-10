@@ -1,7 +1,8 @@
 {
-  "name": "ip-searcher",
+  "name": "torrent-searcher",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ong-ar.github.io/torrent",
   "dependencies": {
     "@atlaskit/button": "^9.0.16",
     "@atlaskit/dynamic-table": "^10.0.22",
@@ -10,24 +11,22 @@
     "@atlaskit/table-tree": "^5.0.1",
     "@atlaskit/theme": "^7.0.2",
     "@types/react-router-dom": "^4.3.1",
-    "axios": "^0.18.0",
-    "es6-shim": "^0.35.4",
+    "gh-pages": "^2.0.1",
     "react": "^16.6.0",
-    "react-adsense": "^0.0.6",
+    "react-app-polyfill": "^0.2.2",
     "react-dom": "^16.6.0",
     "react-ionicons": "^3.0.1",
     "react-router-dom": "^4.3.1",
     "react-scripts-ts": "3.1.0",
-    "react-spinners": "^0.4.7",
-    "react-toastify": "^4.4.2",
-    "styled-components": "^4.0.3",
-    "url-search-params-polyfill": "^5.0.0"
+    "styled-components": "^4.0.3"
   },
   "scripts": {
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "eject": "react-scripts-ts eject",
+    "predeploy": "yarn && yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "@types/jest": "^23.3.9",
